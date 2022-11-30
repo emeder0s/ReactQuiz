@@ -1,0 +1,497 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #383E4E;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#navigation {
+    background-color: hsl(224, 18%, 16%, 0.5);
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 17px 10px;
+}
+
+#navigation #statistics {
+    cursor: pointer;
+    margin-right: 30px;
+    font-size: 20px;
+    /* text-decoration: underline; */
+}
+
+#navigation h3#statistics img {
+    vertical-align: middle;
+}
+#navigation h3#statistics img:hover {
+    width:32px;
+}
+
+.container {
+    padding: 30px;
+    border: 1px solid #16191f;
+    border-radius: 27px;
+    box-shadow: 1px 1px 12px #16191f;
+    background: #383e4e;
+}
+
+#container-statistics{
+    margin-bottom: 50px;
+    width: 647px;
+}
+
+.flex-center-column {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.flex-center-center-column {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.flex-center-row {
+    display:flex;
+    justify-content:center;
+    align-content: center;
+    flex-direction: row;
+    margin: 0;
+}
+
+
+#intro h1 {
+    font-size: 120px;
+    color:#e87425;
+    text-shadow: 2px 3px lemonchiffon;
+    margin: 0;
+    text-align: center;
+}
+
+#intro h2 {
+    font-size: 50px;
+    font-family: 'Creepster', cursive;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 4px;
+    text-align: right;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+h2#statictis-header{
+    text-align: center;
+    color:#e87425;
+    text-shadow: 2px 3px lemonchiffon;
+    font-family: 'Creepster', cursive;
+    margin-top: 0px;
+    margin-bottom: 15px;;
+    font-size: 36px;
+}
+h2#statictis-header span{
+    position: relative;
+    top: -31px;
+    left: 218px;
+    font-size: 27px;
+    text-shadow: 1px 1px 0px black;
+}
+
+h2#statictis-header span:hover{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+h2 span{
+    margin-bottom: 0px;
+    font-size: 70px;
+    color:#e87425;
+    text-shadow: 2px 3px lemonchiffon;
+}
+
+button {
+    background: rgba(0, 0, 0, 0.6);
+    color:white;
+    border:none;
+    padding: 5px 7px;
+    cursor: pointer;
+    margin: 20px 0px;
+    font-size: 150%;
+}
+
+button:hover {
+    background-color:#262A35;
+}
+
+button.answer{
+    width: 100%;
+    margin:5px;
+}
+
+button.correct {
+    border: 2px solid #6d4bc9;
+    background-color: #00ff6a;
+    padding: 12px;
+    font-size: 23px;
+}
+
+button.incorrect {
+    border: 2px solid #6d4bc9;
+    background-color: #ff0800;
+    padding: 12px;
+    font-size: 23px;
+}
+
+input {
+    display: block;
+    height: 35px;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #464545;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+}
+
+label {
+    font-size: 189%;
+    line-height: 39px;
+}
+
+p#copyright-txt{
+    text-align: center;
+    font-size: x-small;
+    margin: 0px;
+    color: #adc165;
+}
+
+#mensaje {
+    text-align: center;
+    color: rgb(173, 193, 101);
+}
+
+#bienvenida div, h3{
+    margin:0;
+}
+
+#bienvenida h2 {
+    font-size: 60px;
+    font-family: 'Creepster', cursive;
+    color: rgb(173, 193, 101);
+}
+
+#bienvenida h2 span#nombre{
+    font-family: 'Creepster', cursive;
+    text-shadow: 1px 1px 5px;
+    color: rgb(173, 193, 101);
+}
+
+#bienvenida h3 {
+    font-size: 30px;
+}
+
+#bienvenida select {
+    display: block;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #464545;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 35px;
+}
+
+button#jugar {
+    width: 100%;
+}
+
+span#bienvenido {
+    color:#e87425;
+    text-shadow: 2px 3px lemonchiffon;
+}
+
+#spider-web-left{
+    position: fixed;
+    left: 0;
+    z-index: -1;
+    width: 55%;
+    opacity: 0.1;
+}
+
+/*MARCADOR*/
+header {
+    background-color: hsl(224, 18%, 16%, 0.5);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+header h3 {
+    font-size: 30px;
+    margin: 10px 20% 10px 0;
+}
+
+#ghost {
+    width: 50px;
+    margin-left: 20%;
+    margin-right: 10px;
+}
+
+/*CAJA PREGUNTAS*/
+.img-pregunta {
+    width: 80px;
+    position: absolute;
+    top: 140px;
+    left: 70%;
+    transform: rotate(10deg);
+    animation: calabaza 1s linear;
+    z-index: 2;
+}
+
+@keyframes calabaza {
+    10% {
+        rotate:rotate(70deg)
+    }
+
+    100% {
+        transform: rotate(370deg);
+    }
+}
+
+#preguntas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto auto auto;
+
+    background-color: #26282c;
+    border-radius: 15px;
+    width: 500px;
+    padding: 20px 5% 30px 5%;
+    align-items: center;
+    box-shadow: rgb(46, 48, 51) 0px 20px 30px -10px;
+    animation: calabaza 1s linear;
+}
+
+@keyframes preguntas {
+
+    100% {
+        transform: rotate(370deg);
+    }
+}
+
+#preguntas h4 {
+    font-size: 25px;
+    line-height: 1.5;
+    text-align: center;
+    transition-duration: 2s;
+    margin-bottom: 10px;
+}
+
+#preguntas button {
+    display: block;
+    border: 2px solid #FF7200;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 350px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #383E4E;
+    color: aliceblue;
+    transition-duration: 0.5s;
+    box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.3);
+}
+
+#preguntas:hover {
+    background-color: #2a2c30;
+}
+
+#preguntas button:hover {
+    border: 2px solid #6d4bc9;
+    background-color: #ff6a00;
+    padding: 12px;
+    font-size: 23px;
+}
+
+#spider {
+    width: 450px;
+    margin-right: 80%;
+    position: relative;
+    bottom: 250px;
+    z-index: -1;
+}
+
+/*RELOJ*/
+#reloj {
+    color: rgb(173, 193, 101);
+    font-family: 'Creepster', cursive;
+    font-size: 50px;
+}
+
+
+#muerte {
+    position: relative;
+    width: 70px;
+    animation:  muerte 1s infinite;
+    visibility: hidden;
+}
+
+@keyframes muerte {
+    0%{width: 80px;}
+    50%{width:70px;}    
+}
+
+
+/*MENSAJES*/
+#mensajes {
+    position: absolute;
+    top: 300px;
+    font-size: 100px;
+    background-color: #8c00ff8e;
+    height: 140px;
+    padding: 30px;
+    visibility: hidden;
+
+}
+
+#mensajes h4 {
+    margin: 0;
+}
+
+/*EFECTOS RAYOS*/
+#thunder1 {
+    position: absolute;
+    top: 210px;
+    height: 250px;
+    width: 100px;
+    transform: rotate(-20deg);
+    right: 75%;
+    animation: blinker 1s linear infinite;
+    visibility: hidden;
+    z-index: 3;
+}
+
+#thunder2 {
+    position: absolute;
+    left: 70%;
+    top: 200px;
+    height: 350px;
+    width: 130px;
+    transform: rotate(10deg);
+    animation: blinker 1s linear infinite;
+    visibility: hidden;
+    z-index: 3;
+}
+
+@keyframes blinker {
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+}
+
+header+h2 {
+    font-size: 30px;
+    font-family: 'Creepster', cursive;
+    /* color: rgb(173, 193, 101); */
+    color:white;
+    margin: 0;
+}
+
+/*PÁGINA RESULTADOS*/
+#ghost2 {
+    position: absolute;
+    width: 160px;
+    top:300px;
+    animation: ghost 9s linear;
+    left: 90%;
+}
+
+@keyframes ghost {
+    5%{left: 85%}
+    40%{left: 45%;}
+    70%{left: 45%}
+    80%{left: 40%}
+    100%{left: 90%}
+}
+
+#mensajeFantasma {
+    position:relative;
+    height: 96px;
+    width: 195px;
+    top: 80px;
+    background: white;
+    box-shadow: 1px 12px 33px rgba(255, 255, 255, 0.5);
+    visibility: hidden;
+    /* color:black; */
+    border-radius: 30px;;
+}
+
+#mensajeFantasma:before {
+    border: 25px solid white;
+    color:black;
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -48px;
+    left: calc(50% - 25px);
+}
+
+#mensajeFantasma p {
+    text-align: center;
+    font-size: 30px;
+    color: #3d324c;;
+    font-family: 'Creepster', cursive;
+}
+.spacer {
+    height: 200px;
+    width: 20px;
+}
+
+#reloj {
+    color: rgb(173, 193, 101);
+    font-family: 'Creepster', cursive;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.spacer {
+    height: 240px;
+    width: 20px;
+}
+
+#stats {
+    /* margin-top: 200px; */
+    width: 800px;
+}
+
+#jugar-otra{
+    margin:0px;
+}

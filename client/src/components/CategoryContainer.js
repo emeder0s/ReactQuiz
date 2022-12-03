@@ -1,15 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from 'react';
+import UserContext from "./UserContext";
 import './components.css'; 
 
 function CategoryContainer(props){
     const [category, setCategory] = useState();
+    const user = useContext(UserContext); 
     const jugar = () =>{
         fetch(category)
-            .then((res) => res.json(res))
-            .then((res) => {
-            localStorage.setItem("questions",JSON.stringify(res.results));
-        });  
+        .then((res) => res.json(res))
+        .then((res) => {
+                prepareQuiz(res.results);
+                props.category(false);
+                props.quiz(true);
+        })
     }
+
+    function prepareQuiz(results){
+        const questions = [];
+        const answers = [];
+        results.map(result =>{
+            questions.push(result.question);
+            answers.push(getAnswers(result.incorrect_answers, result.correct_answer));
+        })
+        localStorage.setItem("questions",JSON.stringify(questions));
+        localStorage.setItem("answers",JSON.stringify(answers));
+    }
+
+    function getAnswers(incorrect_answers, correct_answer){
+        var answers = [{"answer":correct_answer, "isCorrect":true}];
+        incorrect_answers.forEach(answer => {
+            answers.push({"answer":answer, "isCorrect":false});
+        });
+        return shuffleArray(answers);
+    }
+
+    function shuffleArray(inputArray){
+        return inputArray.sort(()=> Math.random() - 0.5);
+    }
+
     return (
         <div id="bienvenida" className="flex-center-columnn">
             <div className="flex-center-center-column">

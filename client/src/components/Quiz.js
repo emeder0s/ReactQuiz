@@ -1,38 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from 'react';
+import UserContext from "./UserContext";
+import useSound from 'use-sound';
+import tictoc from '../audio_questions.mp3';
 import './components.css'; 
 
 function Quiz(props){
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [questions, setQuestions] = useState(JSON.parse(localStorage.getItem("questions")));
+    const [answers, setAnswers] = useState(JSON.parse(localStorage.getItem("answers")));
     const [punctuation, setPunctuation] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
     const [timeLeft, setTimeLeft] = useState(10);
-    const [areDisabled, setAreDisabled] = useState(false);
-
-    const questions = JSON.parse(localStorage.getItem("questions"));
-    const answers = questions.map(question => getAnswers(question.incorrect_answers,question.correct_answer))
-    answers[currentQuestion].forEach(ans => {console.log(ans.answer)})
-    
-    function shuffleArray(inputArray){
-        return inputArray.sort(()=> Math.random() - 0.5);
-    }
-
-    function getAnswers(incorrect_answers, correct_answer){
-        var answers = [{"answer":correct_answer, "isCorrect":true}];
-        incorrect_answers.forEach(answer => {
-            answers.push({"answer":answer, "isCorrect":false});
-        });
-        return shuffleArray(answers);
-    }
+    const [play, { stop }] = useSound(tictoc);
+    const {user, setUser} = useContext(UserContext); 
 
     function handleAnswer(isCorrect, e){
         if(isCorrect){
             setPunctuation(punctuation + 1)
+            // setUser({username: user.username, punctuation})
         }
         e.target.classList.add(isCorrect ? "correct" : "incorrect")
         setTimeout(()=>{
             if(currentQuestion === questions.length-1){
                 setIsFinished(true);
             }else{
+                setTimeLeft(10);
                 setCurrentQuestion(currentQuestion+1)
             }
         }, 1500)   
@@ -40,22 +33,26 @@ function Quiz(props){
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            if ({timeLeft}>0){
+            if (timeLeft === 5) {
+                play();
+            }
+            if (timeLeft > 0){
                 setTimeLeft(prev => prev-1);
             }
-            if ({timeLeft}===0){
-                setAreDisabled(true);
+            if (timeLeft === 0){
+                setTimeLeft(10);
+                setCurrentQuestion(currentQuestion+1)
             }
         },1000);
         return () => clearInterval(interval)
-    },{timeLeft});
+    },[timeLeft]);
 
-    if(isFinished) return(
-        <div className="end-game">
-            <p>{punctuation} of {questions.length}</p>
-            <button onClick={()=> window.location.href="/"}>Play Again?</button>
-        </div>
-    );
+    if(isFinished){
+        setUser({username: user.username, punctuation})
+        props.quiz(false);
+        props.results(true);
+    }
+
     return (
         <div id="questions">
             <div className="question-num">
@@ -65,19 +62,18 @@ function Quiz(props){
                 <span>Left Time: {timeLeft} </span>
             </div>
             <div className="question-title">
-                <h3>{questions[currentQuestion].question}</h3>
+                <h3 key={currentQuestion} dangerouslySetInnerHTML={{__html: questions[currentQuestion]}}></h3>
             </div>
             <div className="question-answers">
-                {answers[currentQuestion].forEach(ans => {
-                    <button 
-                    className="answer" 
-                    key={ans.answer}
-                    disabled= {areDisabled}
-                    onClick={(e) => handleAnswer(ans.isCorrect,e)}
-                    >{ans.answer}</button>
-                })}  
+                {answers[currentQuestion].map(ans => {
+                    return <button 
+                    className="answer"
+                    key = {ans.answer}
+                    onClick={(e) => {handleAnswer(ans.isCorrect,e); stop();}}
+                    dangerouslySetInnerHTML={{__html: ans.answer}}
+                    ></button>
+                    })}  
             </div>
- 
         </div>
     );
 }

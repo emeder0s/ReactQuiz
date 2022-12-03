@@ -1,4 +1,5 @@
 import React from 'react';
+import './components.css'; 
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -7,20 +8,20 @@ class Navigation extends React.Component {
 
   createNav(){
     if(this.props.isLogued==="false"){
-      console.log("entra aquí");
       var navConent = "";
     }else{
-      console.log("aquí no debería aquí");
-      var navConent =  <h3>Statictis</h3>; /* <h3><img src={require('../../public/statistics-30-b.png')}/>Statictis</h3> */
+      var navConent =  <h4>Statictis</h4>; /* <h3><img src={require('../../public/statistics-30-b.png')}/>Statictis</h3> */
     }
     return navConent;
   }
 
   render(){
     return (
-    <nav className="main-nav">
-       { this.createNav()}
-    </nav>
+    <header className="header">
+      <nav className="main-nav">
+        { this.createNav()}
+      </nav>
+    </header>
    );
 }
 }

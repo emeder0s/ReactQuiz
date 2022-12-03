@@ -6,10 +6,6 @@
   width:100%;
 }
 
-#root div:first-child {
-  padding: 1% 2%;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

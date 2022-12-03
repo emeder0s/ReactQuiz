@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import './components.css'; 
+import { useContext } from 'react';
+import './components.css';
+import UserContext from "./UserContext";
 
 function LoginContainer(props){
     const [username, setUsername] = useState();
+    const {user, setUser} = useContext(UserContext); 
     
     const login = () =>{
         if (username){
-            localStorage.setItem("userName",username);
+            setUser({username:username,punctuation:0})
+            // localStorage.setItem("userName",username);
+            props.login(false);
+            props.category(true);
         }
     }
 

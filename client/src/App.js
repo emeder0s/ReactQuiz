@@ -19,11 +19,27 @@ function App() {
   return (
     <div>
       <UserContext.Provider value={{user,setUser}}>
-        {!viewLogin ?  <Navigation></Navigation> :"" }
-        {viewLogin ?  <LoginContainer login={setViewLogin} category={setViewCategory} ></LoginContainer>: ""}
-        {viewCategory ? <CategoryContainer category={setViewCategory} quiz={setViewQuiz}></CategoryContainer> : ""} 
+        {viewLogin ?
+        <div>
+          <Foam></Foam> 
+          <LoginContainer login={setViewLogin} category={setViewCategory} ></LoginContainer>
+        </div> 
+        : ""}
+        {viewCategory ? 
+        <div>
+          <Foam></Foam>
+          <Navigation></Navigation>
+          <CategoryContainer category={setViewCategory} quiz={setViewQuiz}></CategoryContainer> 
+        </div> 
+        : ""} 
         {viewQuiz ? <Quiz quiz={setViewQuiz} results={setViewResults}></Quiz> : ""}
-        {viewResults ?  <Results login={setViewLogin}></Results> : ""}
+        {viewResults ?  
+        <div>
+          <Foam></Foam>
+          <Navigation></Navigation>
+          <Results login={setViewLogin}></Results>
+          </div> 
+        : ""}
       </UserContext.Provider>
       <Bubbles></Bubbles>
       </div>

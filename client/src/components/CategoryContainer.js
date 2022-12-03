@@ -43,14 +43,14 @@ function CategoryContainer(props){
         <div id="bienvenida" className="flex-center-columnn">
             <div className="flex-center-center-column">
                 <h2 id="cabecera2-bienvenida"></h2>
-                <h3 id="cabecera3-bienvenida"> ¿A qué quieres jugar?</h3>
+                <h2 id="cabecera3-bienvenida"> What do you want to play?</h2>
                 <select id="categorias" onChange={(e) => setCategory(e.target.value)}>
-                    <option value="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple">Todas las categorías</option>
-                    <option value="https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple">Cultura General</option>
-                    <option value="https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple">Películas</option>
-                    <option value="https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple">Libros</option>
-                    <option value="https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple">Televisión</option>
-                    <option value="https://opentdb.com/api.php?amount=10&category=16&difficulty=easy&type=multiple" >Juegos de mesa</option>
+                    {/* <option value="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple">All categories</option> */}
+                    <option value="https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple">General culture</option>
+                    <option value="https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple">Movies</option>
+                    <option value="https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple">Books</option>
+                    <option value="https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple">TV</option>
+                    <option value="https://opentdb.com/api.php?amount=10&category=16&difficulty=easy&type=multiple" >Board games</option>
                 </select>
                 <button id="jugar" onClick={jugar}>PLAY</button>
             </div>  

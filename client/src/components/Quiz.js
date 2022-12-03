@@ -41,7 +41,8 @@ function Quiz(props){
             }
             if (timeLeft === 0){
                 setTimeLeft(10);
-                setCurrentQuestion(currentQuestion+1)
+                setCurrentQuestion(currentQuestion+1);
+                stop();
             }
         },1000);
         return () => clearInterval(interval)

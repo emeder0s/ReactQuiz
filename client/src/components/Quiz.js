@@ -16,6 +16,9 @@ function Quiz(props){
     const {user, setUser} = useContext(UserContext); 
 
     function handleAnswer(isCorrect, e){
+        if (timeLeft <= 5){
+            stop();
+        }
         if(isCorrect){
             setPunctuation(punctuation + 1)
             // setUser({username: user.username, punctuation})

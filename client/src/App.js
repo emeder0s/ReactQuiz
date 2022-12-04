@@ -28,7 +28,7 @@ function App() {
         {viewCategory ? 
         <div>
           <Foam></Foam>
-          <Navigation></Navigation>
+          <Navigation isLogued="true"></Navigation>
           <CategoryContainer category={setViewCategory} quiz={setViewQuiz}></CategoryContainer> 
         </div> 
         : ""} 
@@ -36,7 +36,7 @@ function App() {
         {viewResults ?  
         <div>
           <Foam></Foam>
-          <Navigation></Navigation>
+          <Navigation isLogued="false"></Navigation>
           <Results login={setViewLogin}></Results>
           </div> 
         : ""}

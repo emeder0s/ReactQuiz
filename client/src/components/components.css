@@ -124,6 +124,13 @@ div#questions div{
 
 .end-game {
     height: 100vh;
+    margin-top: 10%;
+    padding: 0% 8%;
+}
+
+.end-game h2{
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 button {

@@ -45,7 +45,8 @@ function CategoryContainer(props){
                 <h2 id="cabecera2-bienvenida"></h2>
                 <h2 id="cabecera3-bienvenida"> What do you want to play?</h2>
                 <select id="categorias" onChange={(e) => setCategory(e.target.value)}>
-                    {/* <option value="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple">All categories</option> */}
+                    <option disabled selected>Choose a category</option>  
+                    <option value="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple">All categories</option>
                     <option value="https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple">General culture</option>
                     <option value="https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple">Movies</option>
                     <option value="https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple">Books</option>

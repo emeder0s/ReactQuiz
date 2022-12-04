@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useContext } from 'react';
+import UserContext from "./UserContext";
 import './components.css'; 
 
-class Navigation extends React.Component {
-  constructor(props) {
-      super(props); //Llama al constructor de la super clase que es Component - para que las props le lleguen bien al componente. 
-  }
 
-  createNav(){
-    if(this.props.isLogued==="false"){
+function Navigation (props) {
+  const user = useContext(UserContext);
+  const [navContent, setNavCotent] = useState(createNav());
+
+  function createNav(){
+    if(props.isLogued==="false"){
       var navConent = "";
     }else{
-      var navConent =  <h4>Statictis</h4>; /* <h3><img src={require('../../public/statistics-30-b.png')}/>Statictis</h3> */
+      var navConent =  <h4>Hello, {user.user.username}! Earn your beer!!</h4>; /* <h3><img src={require('../../public/statistics-30-b.png')}/>Statictis</h3> */
     }
     return navConent;
   }
 
-  render(){
-    return (
+  return (
     <header className="header">
       <nav className="main-nav">
-        { this.createNav()}
+        { navContent}
       </nav>
     </header>
    );
-}
+
 }
 
 export default Navigation;

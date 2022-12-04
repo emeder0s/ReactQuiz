@@ -7,13 +7,16 @@ function CategoryContainer(props){
     const [category, setCategory] = useState();
     const user = useContext(UserContext); 
     const jugar = () =>{
-        fetch(category)
-        .then((res) => res.json(res))
-        .then((res) => {
-                prepareQuiz(res.results);
-                props.category(false);
-                props.quiz(true);
-        })
+        if (category){
+            fetch(category)
+            .then((res) => res.json(res))
+            .then((res) => {
+                    prepareQuiz(res.results);
+                    props.category(false);
+                    props.quiz(true);
+            })
+        }
+        
     }
 
     function prepareQuiz(results){
@@ -45,7 +48,7 @@ function CategoryContainer(props){
                 <h2 id="cabecera2-bienvenida"></h2>
                 <h2 id="cabecera3-bienvenida"> What do you want to play?</h2>
                 <select id="categorias" onChange={(e) => setCategory(e.target.value)}>
-                    <option disabled selected>Choose a category</option>  
+                    <option value="">Choose a category</option>  
                     <option value="https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple">All categories</option>
                     <option value="https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple">General culture</option>
                     <option value="https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple">Movies</option>

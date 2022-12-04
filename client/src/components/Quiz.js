@@ -40,9 +40,9 @@ function Quiz(props){
                 setTimeLeft(prev => prev-1);
             }
             if (timeLeft === 0){
+                stop();
                 setTimeLeft(10);
                 setCurrentQuestion(currentQuestion+1);
-                stop();
             }
         },1000);
         return () => clearInterval(interval)

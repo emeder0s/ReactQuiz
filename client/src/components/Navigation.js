@@ -12,7 +12,7 @@ function Navigation (props) {
     if(props.isLogued==="false"){
       var navConent = "";
     }else{
-      var navConent =  <h4>Hello, {user.user.username}! Earn your beer!!</h4>;
+      var navConent =  <h4>Hello, {user.user.username}! Get your beer!!</h4>;
     }
     return navConent;
   }

@@ -18,7 +18,7 @@ function LoginContainer(props){
 
     return (
         <div id="container">
-            <h1>The Big Quiz</h1>
+            <h1>The Beer Quiz</h1>
             <h4>with React</h4>
             <div id="formulario" className="flex-center-column ">
                 <div  className="flex-center-column">

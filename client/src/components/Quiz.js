@@ -11,14 +11,13 @@ function Quiz(props){
     const [answers, setAnswers] = useState(JSON.parse(localStorage.getItem("answers")));
     const [punctuation, setPunctuation] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
     const [timeLeft, setTimeLeft] = useState(10);
     const [play, { stop }] = useSound(tictoc);
-    const {user, setUser} = useContext(UserContext); 
+    const {user, setUser} = useContext(UserContext);
 
     function handleAnswer(isCorrect, e){
-        if (timeLeft <= 5){
-            stop();
-        }
+        stop();
         if(isCorrect){
             setPunctuation(punctuation + 1)
             // setUser({username: user.username, punctuation})
@@ -28,6 +27,7 @@ function Quiz(props){
             if(currentQuestion === questions.length-1){
                 setIsFinished(true);
             }else{
+                setIsDisabled(false);
                 setTimeLeft(10);
                 setCurrentQuestion(currentQuestion+1)
             }
@@ -36,7 +36,7 @@ function Quiz(props){
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            if (timeLeft === 5) {
+            if (timeLeft === 5 && !isDisabled) {
                 play();
             }
             if (timeLeft > 0){
@@ -45,6 +45,7 @@ function Quiz(props){
             if (timeLeft === 0){
                 stop();
                 setTimeLeft(10);
+                setIsDisabled(false);
                 setCurrentQuestion(currentQuestion+1);
             }
         },1000);
@@ -73,7 +74,7 @@ function Quiz(props){
                     return <button 
                     className="answer"
                     key = {ans.answer}
-                    onClick={(e) => {handleAnswer(ans.isCorrect,e); stop();}}
+                    onClick={(e) => {handleAnswer(ans.isCorrect,e); setIsDisabled(true)}}
                     dangerouslySetInnerHTML={{__html: ans.answer}}
                     ></button>
                     })}  

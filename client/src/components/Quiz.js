@@ -35,8 +35,9 @@ function Quiz(props){
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            if (timeLeft === 5 && !isDisabled) {
+            if (timeLeft === 5) {
                 play();
+
             }
             if (timeLeft > 0){
                 setTimeLeft(prev => prev-1);
@@ -57,6 +58,10 @@ function Quiz(props){
         props.results(true);
     }
 
+    if(isDisabled){
+        stop();
+    }
+
     return (
         <div id="questions">
             <div className="question-num">
@@ -73,7 +78,7 @@ function Quiz(props){
                     return <button 
                     className="answer"
                     key = {ans.answer}
-                    onClick={(e) => {handleAnswer(ans.isCorrect,e); setIsDisabled(true)}}
+                    onClick={(e) => {handleAnswer(ans.isCorrect,e);setIsDisabled(true)}}
                     dangerouslySetInnerHTML={{__html: ans.answer}}
                     ></button>
                     })}  

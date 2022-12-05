@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from 'react';
 import UserContext from "./UserContext";
-import './components.css'; 
+import '../style/components.css'; 
 
 function CategoryContainer(props){
     const [category, setCategory] = useState();

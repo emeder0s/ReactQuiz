@@ -179,7 +179,7 @@ body {
 .beer-glass .glass .handle::after {
     content: "";
     position: absolute;
-    background-color: #fad88a;
+    background-color: #ffc537;
     height: 30px;
     width: 10px;
     bottom: 6px;

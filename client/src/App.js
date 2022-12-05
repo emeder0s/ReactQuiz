@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './App.css';
+// import './App.css';
 import Navigation from './components/Navigation';
 import LoginContainer from './components/LoginContainer';
 import CategoryContainer from './components/CategoryContainer';

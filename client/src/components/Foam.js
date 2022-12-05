@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './components.css'; 
+import '../style/components.css'; 
 
 function Foam(props){
 

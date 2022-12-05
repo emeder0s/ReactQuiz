@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import UserContext from "./UserContext";
 import useSound from 'use-sound';
 import tictoc from '../audio_questions.mp3';
-import './components.css'; 
+import '../style/components.css'; 
 
 function Quiz(props){
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -20,16 +20,15 @@ function Quiz(props){
         stop();
         if(isCorrect){
             setPunctuation(punctuation + 1)
-            // setUser({username: user.username, punctuation})
         }
         e.target.classList.add(isCorrect ? "correct" : "incorrect")
         setTimeout(()=>{
             if(currentQuestion === questions.length-1){
                 setIsFinished(true);
             }else{
-                setIsDisabled(false);
                 setTimeLeft(10);
-                setCurrentQuestion(currentQuestion+1)
+                setCurrentQuestion(currentQuestion+1)  
+                setIsDisabled(false);  
             }
         }, 1500)   
     }
@@ -45,8 +44,8 @@ function Quiz(props){
             if (timeLeft === 0){
                 stop();
                 setTimeLeft(10);
-                setIsDisabled(false);
                 setCurrentQuestion(currentQuestion+1);
+                setIsDisabled(false);
             }
         },1000);
         return () => clearInterval(interval)

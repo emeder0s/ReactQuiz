@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import UserContext from "./UserContext";
 import useSound from 'use-sound';
 import coin from '../coin_sound.mp3';
-import './components.css'; 
-import './beer.css'; 
+import '../style/components.css'; 
+import '../style/beer.css'; 
 
 
 function Results(props){
